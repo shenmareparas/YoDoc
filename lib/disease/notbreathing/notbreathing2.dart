@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Notbreathing2 extends StatefulWidget {
   const Notbreathing2({super.key});
@@ -23,16 +24,19 @@ class _Notbreathing2State extends State<Notbreathing2> {
             ])),
         child: SafeArea(
           child: Center(
-            child: Column(children: const [
-              SizedBox(
-                height: 400,
+            child: Column(children: [
+              const SizedBox(
+                height: 30,
               ),
-              Text(
+              Lottie.asset("assets/images/35997-ghostly-tombstone.json",
+                  fit: BoxFit.contain),
+              const Text(
                 'Lets hold a moment of silence',
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ]),
           ),
