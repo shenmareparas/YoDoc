@@ -45,5 +45,5 @@ If you have any questions, suggestions, or feedback, please feel free to contact
 
 ## Enjoy YoDoc!
 
-##Privacy Policy
+## Privacy Policy
 https://www.termsfeed.com/live/093596c6-e069-4723-91f8-aed61e2da0c3
