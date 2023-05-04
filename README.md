@@ -11,7 +11,6 @@ YoDoc is a virtual doctor app built using Flutter and Dart that allows users to 
 ## Technologies Used
 
 - Flutter and Dart for building the mobile app
-- Flutter Test for testing
 - Visual Studio Code
 - Lottie
 - Cupertino Icons
