@@ -2,6 +2,8 @@
 
 YoDoc is a virtual doctor app built using Flutter and Dart that allows users to conveniently get prescription for disease. Users can receive prescription suggestions anywhere, anytime.
 
+<a href='https://play.google.com/store/apps/details?id=com.shenmareparas.yodoc'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='300px'/></a>
+
 ## Features
 
 - **Prescription Suggestions**: YoDoc can provide users with suggested prescriptions for their health condition.
