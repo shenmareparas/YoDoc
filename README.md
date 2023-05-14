@@ -24,7 +24,7 @@ To get started with YoDoc, follow these steps:
 
 1. Clone the repository to your local machine.
 ```bash
-git clone https://github.com/username/repo.git
+git clone https://github.com/shenmareparas/YoDoc.git
 ```
 2. Install the dependencies for the app.
 ```bash
