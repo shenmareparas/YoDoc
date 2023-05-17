@@ -21,8 +21,8 @@ class _Notbreathing1State extends State<Notbreathing1> {
               Color.fromRGBO(6, 190, 182, 1),
               Color.fromRGBO(72, 177, 191, 1),
             ])),
-        child: SafeArea(
-          child: Column(children: const [
+        child: const SafeArea(
+          child: Column(children: [
             SizedBox(
               height: 400,
             ),
