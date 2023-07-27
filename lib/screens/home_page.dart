@@ -92,7 +92,8 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.grey[300],
                           padding: const EdgeInsets.symmetric(
                               horizontal: 70, vertical: 13),
-                          shape: const StadiumBorder()),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
                       child: const Text(
                         'N E X T',
                         style: TextStyle(

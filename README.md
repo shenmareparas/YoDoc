@@ -6,33 +6,52 @@ YoDoc is a virtual doctor app built using Flutter and Dart that allows users to 
 
 ## Features
 
-- **Prescription Suggestions**: YoDoc can provide users with suggested prescriptions for their health condition.
-- **User-friendly Interface**: YoDoc has a clean and intuitive user interface that makes it easy for users to navigate through the app and access the features they need.
+-   **Prescription Suggestions**: YoDoc can provide users with suggested prescriptions for their health condition.
+-   **User-friendly Interface**: YoDoc has a clean and intuitive user interface that makes it easy for users to navigate through the app and access the features they need.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td><img alt='Image 1' src="assets/playstore_images/1.png" width="250"/></td>
+    <td><img alt='Image 2' src="assets/playstore_images/2.png" width="250"/></td> 
+  </tr>
+  <tr>
+  <td><img alt='Image 3' src="assets/playstore_images/3.png" width="250"/></td>
+    <td><img alt='Image 4' src="assets/playstore_images/4.png" width="250"/></td>
+  </tr>
+</table>
 
 ## Technologies Used
 
-- Flutter and Dart for building the mobile app
-- Visual Studio Code
-- Lottie
-- Cupertino Icons
-- Google Fonts
+-   Flutter and Dart for building the mobile app
+-   Visual Studio Code
+-   Lottie
+-   Cupertino Icons
+-   Google Fonts
 
 ## Getting Started
 
 To get started with YoDoc, follow these steps:
 
 1. Clone the repository to your local machine.
+
 ```bash
 git clone https://github.com/shenmareparas/YoDoc.git
 ```
+
 2. Install the dependencies for the app.
+
 ```bash
 flutter pub get
 ```
+
 3. Start the app.
+
 ```bash
 flutter run
 ```
+
 4. Open the YoDoc app on your emulator or device.
 
 ## Contributing
@@ -44,6 +63,7 @@ I welcome contributions from the community! If you'd like to contribute to YoDoc
 If you have any questions, suggestions, or feedback, please feel free to contact me at shenmareparas@gmail.com or create an issue in the repository. I'd love to hear from you!
 
 ## Privacy Policy
+
 https://www.termsfeed.com/live/093596c6-e069-4723-91f8-aed61e2da0c3
 
 ## Enjoy YoDoc!
