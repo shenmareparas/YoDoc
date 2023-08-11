@@ -12,7 +12,6 @@ class _Cold4State extends State<Cold4> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: 10000,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
