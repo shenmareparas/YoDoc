@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../routes/routes.dart';
+import '../../utils/app_constants.dart';
 
 class HeadachePage extends StatefulWidget {
   const HeadachePage({super.key});
@@ -15,70 +16,75 @@ class _HeadachePageState extends State<HeadachePage> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color.fromRGBO(6, 190, 182, 1),
-              Color.fromRGBO(72, 177, 191, 1),
-            ])),
+          gradient: AppConstants.primaryGradient,
+        ),
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 300,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Are you feeling feverish?',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              const Center(
-                  child: Text(
-                'Are you feeling feverish?',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-              )),
-              const SizedBox(
-                height: 35,
-              ),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                          context, AppRoutes.headachefeveryesRoute);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[300],
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 13),
-                        shape: const StadiumBorder()),
-                    child: const Text(
-                      'Y E S',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                    ),
+                  _buildOptionButton(
+                    context,
+                    title: 'YES',
+                    onTap: () => Navigator.pushNamed(
+                        context, AppRoutes.headachefeveryesRoute),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                          context, AppRoutes.headachefevernoRoute);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey[300],
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 13),
-                        shape: const StadiumBorder()),
-                    child: const Text(
-                      'N O',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                    ),
+                  _buildOptionButton(
+                    context,
+                    title: 'NO',
+                    isSecondary: true,
+                    onTap: () => Navigator.pushNamed(
+                        context, AppRoutes.headachefevernoRoute),
                   ),
                 ],
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildOptionButton(BuildContext context,
+      {required String title,
+      required VoidCallback onTap,
+      bool isSecondary = false}) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor:
+            isSecondary ? Colors.white.withValues(alpha: 0.1) : Colors.white,
+        foregroundColor:
+            isSecondary ? Colors.white : const Color.fromRGBO(6, 190, 182, 1),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+          side: isSecondary
+              ? const BorderSide(color: Colors.white, width: 2)
+              : BorderSide.none,
+        ),
+        elevation: isSecondary ? 0 : 4,
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
         ),
       ),
     );

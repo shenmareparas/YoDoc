@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:yodoc/widgets/inputfield.dart';
 
 import '../routes/routes.dart';
+import '../utils/app_constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,55 +33,51 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Color.fromRGBO(6, 190, 182, 1),
-                  Color.fromRGBO(72, 177, 191, 1),
-                ])),
+              gradient: AppConstants.primaryGradient,
+            ),
             child: SafeArea(
               child: Form(
                 key: _formkey,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
                     Lottie.asset(
-                        "assets/images/47137-doctor-and-health-symbols.json",
-                        fit: BoxFit.contain),
-                    const SizedBox(
-                      height: 60,
+                      "assets/images/47137-doctor-and-health-symbols.json",
+                      height: 250,
+                      fit: BoxFit.contain,
                     ),
+                    const SizedBox(height: 20),
                     const Text(
                       'YoDoc',
                       style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 50),
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 42,
+                        letterSpacing: 1.5,
+                      ),
                     ),
-                    const Text(
+                    const SizedBox(height: 10),
+                    Text(
                       'Healthcare Anytime, Anywhere',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      style: TextStyle(
+                        color: Colors.white.withValues(alpha: 0.9),
+                        fontSize: 16,
+                        letterSpacing: 0.5,
+                      ),
                     ),
-                    const SizedBox(
-                      height: 70,
-                    ),
+                    const SizedBox(height: 50),
                     const InputField(
-                        maxLength: 40,
-                        keyboardType: TextInputType.name,
-                        hintxt: "Name"),
-                    const SizedBox(
-                      height: 30,
+                      maxLength: 40,
+                      keyboardType: TextInputType.name,
+                      hintxt: "Name",
                     ),
+                    const SizedBox(height: 20),
                     const InputField(
-                        maxLength: 2,
-                        keyboardType: TextInputType.number,
-                        hintxt: "Age"),
-                    const SizedBox(
-                      height: 30,
+                      maxLength: 2,
+                      keyboardType: TextInputType.number,
+                      hintxt: "Age",
                     ),
+                    const SizedBox(height: 40),
                     ElevatedButton(
                       onPressed: () {
                         if (_formkey.currentState!.validate()) {
@@ -88,20 +85,9 @@ class _HomePageState extends State<HomePage> {
                               AppRoutes.diseaseRoute, (route) => false);
                         }
                       },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[300],
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 70, vertical: 13),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                      child: const Text(
-                        'N E X T',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black54,
-                        ),
-                      ),
+                      child: const Text('GET STARTED'),
                     ),
+                    const Spacer(),
                   ],
                 ),
               ),

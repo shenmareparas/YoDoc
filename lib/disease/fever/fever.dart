@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../routes/routes.dart';
+import '../../utils/app_constants.dart';
 
 class FeverPage extends StatefulWidget {
   const FeverPage({super.key});
@@ -15,108 +16,53 @@ class _FeverPageState extends State<FeverPage> {
     return Scaffold(
         body: Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-            Color.fromRGBO(6, 190, 182, 1),
-            Color.fromRGBO(72, 177, 191, 1),
-          ])),
+        gradient: AppConstants.primaryGradient,
+      ),
       child: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 300,
-            ),
-            const Center(
-                child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Also Happening?',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            )),
-            const SizedBox(
-              height: 35,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            const SizedBox(height: 50),
+            Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              alignment: WrapAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.feverheadRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'Headache',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
+                _buildOptionButton(
+                  context,
+                  title: 'Headache',
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.feverheadRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'BodyPain',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
+                _buildOptionButton(
+                  context,
+                  title: 'Body Pain',
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.feverheadRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'B O T H',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
+                _buildOptionButton(
+                  context,
+                  title: 'BOTH',
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.fevernoheadRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'N O N E',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
+                _buildOptionButton(
+                  context,
+                  title: 'NONE',
+                  isSecondary: true,
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRoutes.fevernoheadRoute),
                 ),
               ],
             ),
@@ -124,5 +70,35 @@ class _FeverPageState extends State<FeverPage> {
         ),
       ),
     ));
+  }
+
+  Widget _buildOptionButton(BuildContext context,
+      {required String title,
+      required VoidCallback onTap,
+      bool isSecondary = false}) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor:
+            isSecondary ? Colors.white.withValues(alpha: 0.1) : Colors.white,
+        foregroundColor:
+            isSecondary ? Colors.white : const Color.fromRGBO(6, 190, 182, 1),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+          side: isSecondary
+              ? const BorderSide(color: Colors.white, width: 2)
+              : BorderSide.none,
+        ),
+        elevation: isSecondary ? 0 : 4,
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+    );
   }
 }

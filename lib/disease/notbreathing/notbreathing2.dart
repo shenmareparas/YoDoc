@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:yodoc/utils/app_constants.dart';
 
 class Notbreathing2 extends StatefulWidget {
   const Notbreathing2({super.key});
@@ -13,32 +14,31 @@ class _Notbreathing2State extends State<Notbreathing2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: 10000,
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-              Color.fromRGBO(6, 190, 182, 1),
-              Color.fromRGBO(72, 177, 191, 1),
-            ])),
+          gradient: AppConstants.primaryGradient,
+        ),
         child: SafeArea(
           child: Center(
-            child: Column(children: [
-              const SizedBox(
-                height: 30,
-              ),
-              Lottie.asset("assets/images/35997-ghostly-tombstone.json",
-                  fit: BoxFit.contain),
-              const Text(
-                'Lets hold a moment of silence',
-                style: TextStyle(
-                    fontSize: 25,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Lottie.asset(
+                  "assets/images/35997-ghostly-tombstone.json",
+                  height: 300,
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(height: 30),
+                const Text(
+                  'Lets hold a moment of silence',
+                  style: TextStyle(
+                    fontSize: 28,
                     color: Colors.white,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ]),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),

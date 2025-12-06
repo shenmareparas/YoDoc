@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yodoc/routes/routes.dart';
+import 'package:yodoc/utils/app_constants.dart';
 
 class StomachachePage extends StatefulWidget {
   const StomachachePage({super.key});
@@ -14,95 +15,70 @@ class _StomachachePageState extends State<StomachachePage> {
     return Scaffold(
         body: Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-            Color.fromRGBO(6, 190, 182, 1),
-            Color.fromRGBO(72, 177, 191, 1),
-          ])),
+        gradient: AppConstants.primaryGradient,
+      ),
       child: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 300,
-            ),
-            const Center(
-                child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Which part of the stomach is affected?',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-            )),
-            const SizedBox(
-              height: 35,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.upperstRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'Upper',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.lowerstRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'Lower',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.wholestRoute);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[300],
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 13),
-                      shape: const StadiumBorder()),
-                  child: const Text(
-                    'Whole',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ),
-              ],
+            const SizedBox(height: 50),
+            _buildOptionButton(
+              context,
+              title: 'Upper',
+              onTap: () => Navigator.pushNamed(context, AppRoutes.upperstRoute),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionButton(
+              context,
+              title: 'Lower',
+              onTap: () => Navigator.pushNamed(context, AppRoutes.lowerstRoute),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionButton(
+              context,
+              title: 'Whole',
+              onTap: () => Navigator.pushNamed(context, AppRoutes.wholestRoute),
             ),
           ],
         ),
       ),
     ));
+  }
+
+  Widget _buildOptionButton(BuildContext context,
+      {required String title,
+      required VoidCallback onTap}) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        foregroundColor: const Color.fromRGBO(6, 190, 182, 1),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
+        minimumSize: const Size(250, 60),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
+        elevation: 4,
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
+      ),
+    );
   }
 }

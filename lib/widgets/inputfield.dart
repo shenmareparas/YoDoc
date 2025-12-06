@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
-  final maxLength;
-  final keyboardType;
+  final int? maxLength;
+  final TextInputType? keyboardType;
   final String hintxt;
   const InputField(
       {super.key,
@@ -19,18 +17,34 @@ class InputField extends StatelessWidget {
       child: TextFormField(
         maxLength: maxLength,
         keyboardType: keyboardType,
-        style:
-            const TextStyle(color: Colors.black54, fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+        ),
         decoration: InputDecoration(
           hintText: hintxt,
-          hintStyle:
-              TextStyle(color: Colors.grey[500], fontWeight: FontWeight.normal),
+          hintStyle: TextStyle(
+            color: Colors.white.withValues(alpha: 0.7),
+            fontWeight: FontWeight.normal,
+          ),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide.none),
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide.none,
+          ),
           filled: true,
-          fillColor: Colors.white54,
+          fillColor: Colors.white.withValues(alpha: 0.2),
           counterText: "",
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: Colors.white30, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: const BorderSide(color: Colors.white, width: 2),
+          ),
         ),
         validator: (value) {
           if (value!.isEmpty) {
