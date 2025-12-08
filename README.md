@@ -2,70 +2,94 @@
 
 # YoDoc - Virtual Doctor App
 
-YoDoc is a virtual doctor app built using Flutter and Dart that allows users to conveniently get prescription for disease. Users can receive prescription suggestions anywhere, anytime.
+YoDoc is a virtual doctor app built using Flutter and Dart that allows users to conveniently get prescriptions for diseases. Users can receive prescription suggestions anywhere, anytime.
 
 <a href='https://play.google.com/store/apps/details?id=com.shenmareparas.yodoc'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='300px'/></a>
 
+## Table of Contents
+
+-   [Features](#features)
+-   [Screenshots](#screenshots)
+-   [Technologies Used](#technologies-used)
+-   [Getting Started](#getting-started)
+-   [Contributing](#contributing)
+-   [Contact](#contact)
+-   [Privacy Policy](#privacy-policy)
+
 ## Features
 
--   **Prescription Suggestions**: YoDoc can provide users with suggested prescriptions for their health condition.
--   **User-friendly Interface**: YoDoc has a clean and intuitive user interface that makes it easy for users to navigate through the app and access the features they need.
+-   **Prescription Suggestions**: YoDoc provides users with suggested prescriptions for their health conditions based on symptoms.
+-   **User-friendly Interface**: Clean and intuitive UI designed for ease of navigation.
+-   **Secure & Private**: Your health data is treated with privacy.
 
 ## Screenshots
 
 <table>
   <tr>
-    <td><img alt='Image 1' src="assets/playstore_images/1.png" width="250"/></td>
-    <td><img alt='Image 2' src="assets/playstore_images/2.png" width="250"/></td> 
+    <td><img src="assets/app_images/1.webp" width="250" alt="Image 1"/></td>
+    <td><img src="assets/app_images/2.webp" width="250" alt="Image 2"/></td>
+    <td><img src="assets/app_images/3.webp" width="250" alt="Image 3"/></td>
   </tr>
   <tr>
-  <td><img alt='Image 3' src="assets/playstore_images/3.png" width="250"/></td>
-    <td><img alt='Image 4' src="assets/playstore_images/4.png" width="250"/></td>
+    <td><img src="assets/app_images/4.webp" width="250" alt="Image 4"/></td>
+    <td><img src="assets/app_images/5.webp" width="250" alt="Image 5"/></td>
   </tr>
 </table>
 
 ## Technologies Used
 
--   Flutter and Dart for building the mobile app
--   Visual Studio Code
--   Lottie
--   Cupertino Icons
--   Google Fonts
+-   **Flutter** & **Dart**: Core mobile application framework.
+-   **Visual Studio Code**: IDE.
+-   **Lottie**: For beautiful animations.
+-   **Cupertino Icons**: iOS-style icons.
+-   **Google Fonts**: Typography.
 
 ## Getting Started
 
 To get started with YoDoc, follow these steps:
 
-1. Clone the repository to your local machine.
+### Prerequisites
 
-```bash
-git clone https://github.com/shenmareparas/YoDoc.git
-```
+-   Flutter SDK installed on your machine.
+-   A device or emulator to run the app.
 
-2. Install the dependencies for the app.
+### Installation
 
-```bash
-flutter pub get
-```
+1.  **Clone the repository** to your local machine.
 
-3. Start the app.
+    ```bash
+    git clone https://github.com/shenmareparas/YoDoc.git
+    cd YoDoc
+    ```
 
-```bash
-flutter run
-```
+2.  **Install the dependencies**.
 
-4. Open the YoDoc app on your emulator or device.
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Start the app**.
+
+    ```bash
+    flutter run
+    ```
 
 ## Contributing
 
-I welcome contributions from the community! If you'd like to contribute to YoDoc, please fork the repository, create a branch, and submit a pull request with your changes. Make sure to follow the code style and commit message conventions outlined in the repository.
+Contributions are welcome! If you'd like to contribute:
+
+1.  Fork the repository.
+2.  Create a branch for your feature/fix.
+3.  Submit a pull request.
+
+Please follow the code style and conventions used in the project.
 
 ## Contact
 
-If you have any questions, suggestions, or feedback, please feel free to contact me at shenmareparas@gmail.com or create an issue in the repository. I'd love to hear from you!
+If you have any questions, suggestions, or feedback, please feel free to contact me at [shenmareparas@gmail.com](mailto:shenmareparas@gmail.com) or create an issue in the repository.
 
 ## Privacy Policy
 
-https://www.termsfeed.com/live/093596c6-e069-4723-91f8-aed61e2da0c3
+[View Privacy Policy](https://www.termsfeed.com/live/093596c6-e069-4723-91f8-aed61e2da0c3)
 
 ## Enjoy YoDoc!
