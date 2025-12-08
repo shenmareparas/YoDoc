@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yodoc/routes/routes.dart';
-import 'package:yodoc/utils/app_constants.dart';
+import 'package:yodoc/widgets/option_button.dart';
+import 'package:yodoc/widgets/symptom_page_scaffold.dart';
 
 class StomachachePage extends StatefulWidget {
   const StomachachePage({super.key});
@@ -12,74 +13,24 @@ class StomachachePage extends StatefulWidget {
 class _StomachachePageState extends State<StomachachePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: AppConstants.primaryGradient,
-      ),
-      child: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                'Which part of the stomach is affected?',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(height: 50),
-            _buildOptionButton(
-              context,
-              title: 'Upper',
-              onTap: () => Navigator.pushNamed(context, AppRoutes.upperstRoute),
-            ),
-            const SizedBox(height: 20),
-            _buildOptionButton(
-              context,
-              title: 'Lower',
-              onTap: () => Navigator.pushNamed(context, AppRoutes.lowerstRoute),
-            ),
-            const SizedBox(height: 20),
-            _buildOptionButton(
-              context,
-              title: 'Whole',
-              onTap: () => Navigator.pushNamed(context, AppRoutes.wholestRoute),
-            ),
-          ],
+    return SymptomPageScaffold(
+      title: 'Which part of the stomach is affected?',
+      children: [
+        OptionButton(
+          title: 'Upper',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.upperstRoute),
         ),
-      ),
-    ));
-  }
-
-  Widget _buildOptionButton(BuildContext context,
-      {required String title, required VoidCallback onTap}) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        foregroundColor: const Color.fromRGBO(6, 190, 182, 1),
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
-        minimumSize: const Size(250, 60),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+        const SizedBox(height: 20),
+        OptionButton(
+          title: 'Lower',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.lowerstRoute),
         ),
-        elevation: 4,
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
+        const SizedBox(height: 20),
+        OptionButton(
+          title: 'Whole',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.wholestRoute),
         ),
-      ),
+      ],
     );
   }
 }

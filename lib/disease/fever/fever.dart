@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../routes/routes.dart';
-import '../../utils/app_constants.dart';
+import 'package:yodoc/routes/routes.dart';
+import 'package:yodoc/widgets/option_button.dart';
+import 'package:yodoc/widgets/symptom_page_scaffold.dart';
 
 class FeverPage extends StatefulWidget {
   const FeverPage({super.key});
@@ -13,83 +13,29 @@ class FeverPage extends StatefulWidget {
 class _FeverPageState extends State<FeverPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: AppConstants.primaryGradient,
-      ),
-      child: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                'Also Happening?',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 50),
-            _buildOptionButton(
-              context,
-              title: 'Headache',
-              onTap: () =>
-                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-            ),
-            const SizedBox(height: 20),
-            _buildOptionButton(
-              context,
-              title: 'Body Pain',
-              onTap: () =>
-                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-            ),
-            const SizedBox(height: 20),
-            _buildOptionButton(
-              context,
-              title: 'BOTH',
-              onTap: () =>
-                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-            ),
-            const SizedBox(height: 20),
-            _buildOptionButton(
-              context,
-              title: 'NONE',
-              onTap: () =>
-                  Navigator.pushNamed(context, AppRoutes.fevernoheadRoute),
-            ),
-          ],
+    return SymptomPageScaffold(
+      title: 'Also Happening?',
+      children: [
+        OptionButton(
+          title: 'Headache',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.feverheadRoute),
         ),
-      ),
-    ));
-  }
-
-  Widget _buildOptionButton(BuildContext context,
-      {required String title, required VoidCallback onTap}) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        foregroundColor: const Color.fromRGBO(6, 190, 182, 1),
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
-        minimumSize: const Size(250, 60),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+        const SizedBox(height: 20),
+        OptionButton(
+          title: 'Body Pain',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.feverheadRoute),
         ),
-        elevation: 4,
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
+        const SizedBox(height: 20),
+        OptionButton(
+          title: 'BOTH',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.feverheadRoute),
         ),
-      ),
+        const SizedBox(height: 20),
+        OptionButton(
+          title: 'NONE',
+          onTap: () => Navigator.pushNamed(context, AppRoutes.fevernoheadRoute),
+        ),
+      ],
     );
   }
 }
