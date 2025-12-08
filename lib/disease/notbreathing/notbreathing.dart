@@ -14,6 +14,8 @@ class _NotbreathingPageState extends State<NotbreathingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+      height: double.infinity,
+      width: double.infinity,
       decoration: const BoxDecoration(
         gradient: AppConstants.primaryGradient,
       ),

@@ -15,6 +15,8 @@ class _FeverPageState extends State<FeverPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+      height: double.infinity,
+      width: double.infinity,
       decoration: const BoxDecoration(
         gradient: AppConstants.primaryGradient,
       ),
@@ -34,37 +36,32 @@ class _FeverPageState extends State<FeverPage> {
               ),
             ),
             const SizedBox(height: 50),
-            Wrap(
-              spacing: 20,
-              runSpacing: 20,
-              alignment: WrapAlignment.center,
-              children: [
-                _buildOptionButton(
-                  context,
-                  title: 'Headache',
-                  onTap: () =>
-                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-                ),
-                _buildOptionButton(
-                  context,
-                  title: 'Body Pain',
-                  onTap: () =>
-                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-                ),
-                _buildOptionButton(
-                  context,
-                  title: 'BOTH',
-                  onTap: () =>
-                      Navigator.pushNamed(context, AppRoutes.feverheadRoute),
-                ),
-                _buildOptionButton(
-                  context,
-                  title: 'NONE',
-                  isSecondary: true,
-                  onTap: () =>
-                      Navigator.pushNamed(context, AppRoutes.fevernoheadRoute),
-                ),
-              ],
+            _buildOptionButton(
+              context,
+              title: 'Headache',
+              onTap: () =>
+                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionButton(
+              context,
+              title: 'Body Pain',
+              onTap: () =>
+                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionButton(
+              context,
+              title: 'BOTH',
+              onTap: () =>
+                  Navigator.pushNamed(context, AppRoutes.feverheadRoute),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionButton(
+              context,
+              title: 'NONE',
+              onTap: () =>
+                  Navigator.pushNamed(context, AppRoutes.fevernoheadRoute),
             ),
           ],
         ),
@@ -73,30 +70,24 @@ class _FeverPageState extends State<FeverPage> {
   }
 
   Widget _buildOptionButton(BuildContext context,
-      {required String title,
-      required VoidCallback onTap,
-      bool isSecondary = false}) {
+      {required String title, required VoidCallback onTap}) {
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        backgroundColor:
-            isSecondary ? Colors.white.withValues(alpha: 0.1) : Colors.white,
-        foregroundColor:
-            isSecondary ? Colors.white : const Color.fromRGBO(6, 190, 182, 1),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+        backgroundColor: Colors.white,
+        foregroundColor: const Color.fromRGBO(6, 190, 182, 1),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 16),
+        minimumSize: const Size(250, 60),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
-          side: isSecondary
-              ? const BorderSide(color: Colors.white, width: 2)
-              : BorderSide.none,
         ),
-        elevation: isSecondary ? 0 : 4,
+        elevation: 4,
       ),
       child: Text(
         title,
         style: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 16,
+          fontSize: 18,
         ),
       ),
     );

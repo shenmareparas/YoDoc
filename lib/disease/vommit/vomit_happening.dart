@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yodoc/utils/app_constants.dart';
+import 'package:yodoc/widgets/medicine_item.dart';
 
 class VommitHappening extends StatefulWidget {
   const VommitHappening({super.key});
@@ -13,6 +14,8 @@ class _VommitHappeningState extends State<VommitHappening> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
+        width: double.infinity,
         decoration: const BoxDecoration(
           gradient: AppConstants.primaryGradient,
         ),
@@ -32,7 +35,7 @@ class _VommitHappeningState extends State<VommitHappening> {
                   ),
                 ),
                 const SizedBox(height: 50),
-                _buildMedicineItem(
+                MedicineItem(
                   name: 'Vomikind MD',
                   imagePath: "assets/images/IMG_3845.png",
                   imageHeight: 300,
@@ -42,37 +45,6 @@ class _VommitHappeningState extends State<VommitHappening> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildMedicineItem({
-    required String name,
-    required String imagePath,
-    double imageHeight = 200,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          name,
-          style: const TextStyle(
-            fontSize: 22,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              imagePath,
-              height: imageHeight,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

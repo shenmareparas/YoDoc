@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yodoc/utils/app_constants.dart';
+import 'package:yodoc/widgets/medicine_item.dart';
 
 class Cold2 extends StatefulWidget {
   const Cold2({super.key});
@@ -13,6 +14,8 @@ class _Cold2State extends State<Cold2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
+        width: double.infinity,
         decoration: const BoxDecoration(
           gradient: AppConstants.primaryGradient,
         ),
@@ -32,19 +35,19 @@ class _Cold2State extends State<Cold2> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                _buildMedicineItem(
+                MedicineItem(
                   name: 'ZADY 500',
                   description: '1 Tab daily till the cold subsides',
                   imagePath: "assets/images/IMG_3848.png",
                 ),
                 const SizedBox(height: 30),
-                _buildMedicineItem(
+                MedicineItem(
                   name: 'Fenceta Novo',
                   description: '1 Tab when you feel feverish',
                   imagePath: "assets/images/IMG_3829.png",
                 ),
                 const SizedBox(height: 30),
-                _buildMedicineItem(
+                MedicineItem(
                   name: 'Montemac-L',
                   description: '2 times daily till the cold subsides',
                   imagePath: "assets/images/IMG_3852.png",
@@ -55,47 +58,6 @@ class _Cold2State extends State<Cold2> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildMedicineItem({
-    required String name,
-    required String description,
-    required String imagePath,
-    double imageHeight = 200,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          name,
-          style: const TextStyle(
-            fontSize: 22,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          description,
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.white.withValues(alpha: 0.9),
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              imagePath,
-              height: imageHeight,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

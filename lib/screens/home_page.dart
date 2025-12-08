@@ -27,15 +27,15 @@ class _HomePageState extends State<HomePage> {
         }
       },
       child: Scaffold(
-        body: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-              gradient: AppConstants.primaryGradient,
-            ),
-            child: SafeArea(
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: AppConstants.primaryGradient,
+          ),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
               child: Form(
                 key: _formkey,
                 child: Column(

@@ -14,6 +14,8 @@ class _StomachachePageState extends State<StomachachePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+      height: double.infinity,
+      width: double.infinity,
       decoration: const BoxDecoration(
         gradient: AppConstants.primaryGradient,
       ),
@@ -58,8 +60,7 @@ class _StomachachePageState extends State<StomachachePage> {
   }
 
   Widget _buildOptionButton(BuildContext context,
-      {required String title,
-      required VoidCallback onTap}) {
+      {required String title, required VoidCallback onTap}) {
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(

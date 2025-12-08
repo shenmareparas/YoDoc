@@ -13,6 +13,8 @@ class _Notbreathing1State extends State<Notbreathing1> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
+        width: double.infinity,
         decoration: const BoxDecoration(
           gradient: AppConstants.primaryGradient,
         ),
