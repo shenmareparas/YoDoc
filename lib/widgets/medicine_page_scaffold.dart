@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:yodoc/utils/app_constants.dart';
 
-class SymptomPageScaffold extends StatelessWidget {
-  final String title;
+class MedicinePageScaffold extends StatelessWidget {
   final List<Widget> children;
 
-  const SymptomPageScaffold({
+  const MedicinePageScaffold({
     super.key,
-    required this.title,
     required this.children,
   });
 
@@ -39,24 +37,13 @@ class SymptomPageScaffold extends StatelessWidget {
           gradient: AppConstants.primaryGradient,
         ),
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(height: 50),
-              ...children,
-            ],
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: children,
+            ),
           ),
         ),
       ),
